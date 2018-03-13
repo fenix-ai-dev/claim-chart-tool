@@ -14,3 +14,34 @@ function onSignIn(googleUser) {
 };
 
 //https://drive.google.com/open?id=1KLKtZfdMT5t2wJRlD3C4RCPNntXkgUOk
+
+function claimChart(){
+    console.log('get claim chart')
+
+    var file = $('#file-input')[0].files[0];
+    file.name = 'file';
+    //file.originalname = 'claim.docx';
+    file.type = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    var data = new FormData();
+    data.append('file', file);
+
+   //  $.ajax({
+   //      url: 'https://fenix.law:7483/chart',
+   //      type: "POST",
+   //      data: data,
+   //      processData: false,
+   //      contentType: false,
+   //      success: function(res){
+   //  		var file_name = res.split('temp/')[1]
+   //  		var download_url = 'https://fenix.law:7483/temp/' + file_name;
+			// downloadURL(download_url, file_name, 'docx', false);
+   //      }
+   //  });
+}
+
+function downloadURL(url, file_name){
+    console.log('downloading file: ' + url);
+    var download_link = document.createElement("a");
+    download_link.href = url.replace('\/public', '');
+    download_link.click();
+}

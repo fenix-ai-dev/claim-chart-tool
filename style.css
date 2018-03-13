@@ -3,3 +3,8 @@
 	top: 15px;
 	right: 15px;
 }
+
+#submit-button {
+	border: 1px solid black;
+	cursor: pointer;
+}

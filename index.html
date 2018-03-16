@@ -17,14 +17,14 @@
 
 <body>
 
-	<h1>Claim Chart Tool</h1>
+	<h1 id='title'>Claim Chart Tool</h1>
     <div class="g-signin2 sign-in" data-onsuccess="onSignIn"></div>
     <input id='file-input' type='file' name='file'/>
-    <div id='submit-button'>Get Claim Chart</div>
+    <div id='submit-button' onclick='claimChart()'>Get Claim Chart</div>
 
 <!-- ****************************** JS Resources ****************************** -->
 
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="controller.js"></script>
 </body>
 </html>

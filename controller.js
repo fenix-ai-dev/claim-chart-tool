@@ -19,24 +19,25 @@ function claimChart(){
     console.log('get claim chart')
 
     var file = $('#file-input')[0].files[0];
-    file.name = 'file';
-    //file.originalname = 'claim.docx';
+    file.originalname = file.name;
     file.type = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
     var data = new FormData();
     data.append('file', file);
 
-   //  $.ajax({
-   //      url: 'https://fenix.law:7483/chart',
-   //      type: "POST",
-   //      data: data,
-   //      processData: false,
-   //      contentType: false,
-   //      success: function(res){
-   //  		var file_name = res.split('temp/')[1]
-   //  		var download_url = 'https://fenix.law:7483/temp/' + file_name;
-			// downloadURL(download_url, file_name, 'docx', false);
-   //      }
-   //  });
+
+    $.ajax({
+        url: 'https://fenix.law:7483/chart',
+        type: "POST",
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function(res){
+        	console.log(res);
+    		var file_name = res.split('temp/')[1]
+    		var download_url = 'https://fenix.law:7483/temp/' + file_name;
+			downloadURL(download_url, file_name, 'docx', false);
+        }
+    });
 }
 
 function downloadURL(url, file_name){
